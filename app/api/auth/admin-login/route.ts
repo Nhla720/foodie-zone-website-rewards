@@ -1,0 +1,20 @@
+import {NextRequest,NextResponse} from 'next/server';
+import bcrypt from 'bcryptjs';
+import sql,{initDb} from '@/lib/db';
+import {setSession} from '@/lib/auth';
+import {error} from '@/lib/http';
+import {rateLimit,rateLimitMessage,clientIp} from '@/lib/rateLimit';
+
+export async function POST(req:NextRequest){
+  try{
+    await initDb();
+    const {email,password}=await req.json();
+    const rl=rateLimit(`admin-login:${clientIp(req)}:${String(email||'').toLowerCase()}`,6,15*60*1000);
+    if(!rl.allowed)return error(rateLimitMessage(rl.retryAfterSeconds),429);
+    const rows=await sql`SELECT id,password_hash,role FROM users WHERE lower(email)=lower(${email||''})`;
+    if(!rows.length||!(await bcrypt.compare(password||'',rows[0].password_hash)))return error('Email or password is incorrect.',401);
+    if(rows[0].role!=='admin')return error('This account does not have admin access.',403);
+    await setSession(rows[0].id);
+    return NextResponse.json({ok:true});
+  }catch(e){console.error(e);return error('Login failed.',500)}
+}

@@ -1,0 +1,1 @@
+import {NextResponse} from 'next/server';import sql,{initDb} from '@/lib/db';export async function GET(){await initDb();const rewards=await sql`SELECT id,name,description,points_cost FROM rewards WHERE active=true ORDER BY id DESC`;return NextResponse.json({rewards})}

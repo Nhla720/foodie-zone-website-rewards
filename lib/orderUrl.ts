@@ -1,0 +1,1 @@
+export const ORDER_URL = process.env.NEXT_PUBLIC_ORDER_ONLINE_URL || 'https://www.foodbooking.com/ordering/restaurant/menu?company_uid=1043e827-9814-44dc-bcdf-5e2a572b1ad2&restaurant_uid=203d05b1-9d96-4b0e-ad12-f1178ebbce42';

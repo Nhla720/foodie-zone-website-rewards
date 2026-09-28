@@ -1,0 +1,2 @@
+import {NextRequest,NextResponse} from 'next/server';import sql,{initDb} from '@/lib/db';import {getSessionUserId} from '@/lib/auth';
+export async function GET(){await initDb();const userId=await getSessionUserId();if(!userId)return NextResponse.json({error:'Unauthorized'},{status:401});const rows=await sql`SELECT id,source,external_order_id,amount_cents,points_earned,status,purchased_at FROM purchases WHERE user_id=${userId} ORDER BY purchased_at DESC LIMIT 50`;return NextResponse.json({purchases:rows});}
