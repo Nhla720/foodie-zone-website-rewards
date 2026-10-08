@@ -336,3 +336,24 @@ img{max-width:100%;height:auto}
   .inline-btn{width:100%}
 }
 @media(max-width:380px){.menu-grid{grid-template-columns:1fr}}
+
+/* ================= IN-SITE ORDERING ================= */
+.split-order{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:18px;align-items:start}
+.split-order>.card{margin:0}
+.qty{display:flex;align-items:center;gap:10px}
+.qty .secondary{padding:7px 11px;min-height:38px}
+.cart-row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #eee}
+.cart-row:last-child{border-bottom:0}
+.search{margin:0 0 14px}
+.catbar{overflow-x:auto;margin-bottom:18px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.chip{border:1px solid #ddd;background:#fff;border-radius:999px;padding:8px 14px;white-space:nowrap;font-weight:800}
+.chip.on{background:var(--black);color:#fff;border-color:var(--black)}
+.choice{display:flex;gap:10px}
+.choice label{margin:0;flex:1;border:1px solid #ddd;border-radius:10px;padding:12px;font-weight:700}
+.choice input{width:auto;min-height:0;margin-right:7px}
+.admin-order .head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+.admin-order .links{display:flex;gap:8px;flex-wrap:wrap}
+.admin-order .links button{width:auto}
+.pill.New{background:#fff4d6;color:#8a5a00}.pill.Preparing{background:#ffe8d9;color:#9b4200}.pill.Ready{background:#e9f4ff;color:#155b8f}.pill.Completed{background:#e9ffe9;color:#176017}.pill.Cancelled{background:#eee;color:#666}
+@media(max-width:760px){.split-order{grid-template-columns:1fr}.cart-row{align-items:flex-start}.admin-order .links button{flex:1 1 45%}}

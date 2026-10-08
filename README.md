@@ -4,7 +4,7 @@ This is the **full Foodie Zone customer website** with the Foodie Zone Rewards p
 
 ## Customer side
 - Foodie Zone branded homepage
-- Menu (display only — every order goes through FoodBooking via the Order Online button; items, prices and photos are managed in Admin → Menu)
+- Menu (display only — every order goes through Foodie Zone ordering via the Order Online button; items, prices and photos are managed in Admin → Menu)
 - Contact
 - Customer registration/login
 - Rewards landing page
@@ -14,7 +14,7 @@ This is the **full Foodie Zone customer website** with the Foodie Zone Rewards p
 - Purchase history
 - Rewards
 - Password recovery
-- Order Online button connected to the existing FoodBooking ordering page
+- Order Online button connected to the existing Foodie Zone ordering ordering page
 
 ## Rewards/admin side
 The project also contains the Rewards API and admin area for customer management, purchases, rewards, staff and QR redemption.
@@ -22,10 +22,10 @@ The project also contains the Rewards API and admin area for customer management
 ## Shared Rewards rules
 Points are calculated as **25% of the purchase amount**, represented as whole points. Examples: R100 = 25 points, R200 = 50 points.
 
-Because FoodBooking has not provided an API/webhook, do not scrape or bypass it. Online purchases can be recorded for admin verification until an official integration is available.
+Because Foodie Zone ordering has not provided an API/webhook, do not scrape or bypass it. Online purchases can be recorded for admin verification until an official integration is available.
 
 ## Environment
-Copy `.env.example` to `.env.local` and configure Neon, JWT, Resend, admin and the FoodBooking URL.
+Copy `.env.example` to `.env.local` and configure Neon, JWT, Resend, admin and the Foodie Zone ordering URL.
 
 ## Run
 ```bash

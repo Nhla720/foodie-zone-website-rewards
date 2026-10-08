@@ -1,0 +1,7 @@
+'use client';
+import {useEffect,useState} from 'react';
+import Link from 'next/link';
+const money=(n:number)=>'R'+(n/100).toFixed(2);
+export default function Orders(){const [orders,setOrders]=useState<any[]|null>(null);const [err,setErr]=useState('');
+useEffect(()=>{fetch('/api/orders').then(async r=>{if(r.status===401){location.href='/login?next=/orders';return}const d=await r.json();if(!r.ok)throw new Error(d.error);setOrders(d.orders||[])}).catch(e=>setErr(e.message||'Could not load orders'))},[]);
+return <main className="wrap"><div className="hero"><h1>My Orders</h1><p>Track your Foodie Zone orders and points earned.</p></div>{err&&<div className="error">{err}</div>}{!orders&&!err&&<div className="card">Loading orders...</div>}{orders?.length===0&&<div className="card"><h2>No orders yet</h2><Link href="/menu">Order your first meal</Link></div>}{orders?.map(o=><article className="order" key={o.id}><div className="head"><div><strong>{o.order_number}</strong><div className="muted">{new Date(o.created_at).toLocaleString()}</div></div><span className="pill">{o.status}</span></div><div className="tot"><span>{o.order_type==='delivery'?'Delivery':'Pickup'}</span><strong>{money(o.total_cents)}</strong></div><div className="muted">{o.status==='Completed'?('+'+o.points_awarded+' points earned'):'Points are added when the order is completed.'}</div></article>)}</main>}

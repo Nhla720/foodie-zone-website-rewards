@@ -16,6 +16,7 @@ export default function Admin(){
     <div className="hero"><h1>Foodie Zone Admin</h1><p>Manage rewards, customers and staff access.</p></div>
     <div className="grid">
       <Link className="card" href="/admin/rewards"><h2>Manage rewards</h2><p className="muted">Add or delete rewards customers can redeem.</p></Link>
+      <Link className="card" href="/admin/orders"><h2>Orders</h2><p className="muted">View customer orders and update status.</p></Link>
       <Link className="card" href="/admin/claims"><h2>Order claims</h2><p className="muted">Approve online orders customers have claimed points for.</p></Link>
       <Link className="card" href="/admin/menu"><h2>Menu</h2><p className="muted">Edit menu items, prices and photos.</p></Link>
       <Link className="card" href="/admin/purchases"><h2>Purchases</h2><p className="muted">Record store purchases and review imported online orders.</p></Link>
