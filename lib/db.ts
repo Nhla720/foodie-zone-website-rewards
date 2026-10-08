@@ -1,5 +1,6 @@
 import { neon } from '@neondatabase/serverless';
 import bcrypt from 'bcryptjs';
+import { MENU_SEED } from './menuSeed';
 const sql = neon(process.env.DATABASE_URL!);
 async function runInit(){
  await sql`CREATE TABLE IF NOT EXISTS users (id SERIAL PRIMARY KEY, member_id VARCHAR(32) UNIQUE NOT NULL, name TEXT NOT NULL, email TEXT UNIQUE NOT NULL, password_hash TEXT NOT NULL, points INTEGER NOT NULL DEFAULT 0, must_upgrade_password BOOLEAN NOT NULL DEFAULT TRUE, role VARCHAR(20) NOT NULL DEFAULT 'customer', created_at TIMESTAMPTZ NOT NULL DEFAULT NOW())`;
@@ -24,8 +25,7 @@ async function runInit(){
  if(seeded.length){
    const count=await sql`SELECT count(*)::int AS n FROM menu_items`;
    if(count[0].n===0){
-     const items:[string,number][]=[['Classic Burger',5500],['Chicken Burger',6500],['Loaded Chips',4500],['Chicken Wings',7000],['Combo Meal',9500],['Soft Drink',2000]];
-     for(let i=0;i<items.length;i++) await sql`INSERT INTO menu_items(name,price_cents,sort_order) VALUES(${items[i][0]},${items[i][1]},${i})`;
+     for(let i=0;i<MENU_SEED.length;i++){const x=MENU_SEED[i];await sql`INSERT INTO menu_items(name,description,price_cents,category,sort_order) VALUES(${x.name},${x.description},${x.price_cents},${x.category},${i})`;}
    }
  }
  await sql`CREATE TABLE IF NOT EXISTS order_claims (id SERIAL PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE, order_ref TEXT NOT NULL, amount_cents INTEGER NOT NULL, status VARCHAR(20) NOT NULL DEFAULT 'pending' CHECK (status IN ('pending','approved','rejected')), points_awarded INTEGER NOT NULL DEFAULT 0, admin_note TEXT NOT NULL DEFAULT '', created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(), reviewed_at TIMESTAMPTZ)`;
