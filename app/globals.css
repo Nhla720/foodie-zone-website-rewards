@@ -488,3 +488,77 @@ img{max-width:100%;height:auto}
   .fz-reward-card{min-height:165px}
   .fz-claim-row{align-items:flex-start;flex-direction:column}
 }
+
+
+/* ================= REFINED REWARDS-ONLY DARK THEME ================= */
+.fz-app{background:#111;color:#ededed}
+.fz-app-header{background:#111;border-bottom:1px solid #333}
+.fz-wordmark span{color:#d94a69}
+.fz-nav a,.fz-nav button{color:#c9c9c9}
+.fz-nav a:hover,.fz-nav button:hover{background:#252525}
+.fz-dashboard{max-width:1040px}
+.fz-welcome{min-height:190px;background:#1b1b1b;border:1px solid #303030;border-radius:14px;box-shadow:none;padding:30px 34px}
+.fz-welcome:after{display:none}
+.fz-welcome h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-.04em}
+.fz-kicker{color:#cf7186}
+.fz-welcome-copy>p{color:#bdbdbd}
+.fz-member-tag{border-color:#414141;color:#aaa}
+.fz-member-tag strong{color:#eee}
+.fz-points-layout{display:block;margin:18px 0 30px}
+.fz-points-card{background:#202020;border:1px solid #3a3a3a;color:#f2f2f2;border-radius:14px;box-shadow:none;padding:25px 27px}
+.fz-live-pill{background:#292929;border-color:#454545;color:#c9c9c9}
+.fz-points-number{font-size:clamp(40px,6vw,58px);color:#f2f2f2}
+.fz-points-number span{color:#a9a9a9}
+.fz-points-card>p{color:#bdbdbd}
+.fz-progress-track{background:#383838}
+.fz-progress-fill{background:#c64a67}
+.fz-progress-labels{color:#aaa}
+.fz-unlocked-note{background:#292929;border:1px solid #454545;color:#ddd}
+.fz-section-heading h2{color:#f0f0f0}
+.fz-section-heading>p{color:#999}
+.fz-member-card{background:#1d1d1d;border:1px solid #363636;box-shadow:none;border-radius:14px}
+.fz-qr-wrap{background:#f7f7f7;border:0;border-radius:10px}
+.fz-member-copy h3{color:#f2f2f2}
+.fz-member-copy>p{color:#aaa}
+.fz-member-id-line{border-color:#393939}
+.fz-member-id-line span{color:#999}
+.fz-member-id-line strong{color:#eee}
+.fz-reward-card{background:#1d1d1d;border:1px solid #373737;box-shadow:none;border-radius:13px;transition:border-color .2s ease}
+.fz-reward-card:hover{transform:none;box-shadow:none;border-color:#666}
+.fz-reward-card.is-unlocked{border-color:#a9435b;box-shadow:inset 0 2px #a9435b}
+.fz-reward-top{color:#929292}
+.fz-reward-card.is-unlocked .fz-reward-top span:last-child{color:#d47a90}
+.fz-reward-card h3{color:#f0f0f0}
+.fz-reward-card>p{color:#aaa}
+.fz-reward-cost{color:#eee}
+.fz-reward-cost span{color:#999}
+.fz-progress-track-small{background:#383838}
+.fz-progress-track-small .fz-progress-fill{background:#b64c66}
+.fz-reward-foot,.fz-reward-card.is-unlocked .fz-reward-foot{color:#c78b99}
+.fz-empty-card,.fz-empty-history{background:#1d1d1d;border-color:#393939;color:#aaa}
+.fz-content-card{background:#1d1d1d;border-color:#373737;box-shadow:none}
+.fz-content-card>p{color:#aaa}
+.fz-content-card .field label{color:#ddd}
+.fz-content-card .field input{background:#151515;color:#eee;border-color:#444}
+.fz-content-card .field input::placeholder{color:#777}
+.fz-submit{background:#a93d57;color:#fff;border-radius:8px}
+.fz-submit:hover{background:#bd4a65;transform:none}
+.fz-claim-list{border-color:#393939}
+.fz-claim-row,.fz-history-row{border-color:#363636}
+.fz-claim-row strong,.fz-history-row strong{color:#eee}
+.fz-claim-row>div>span,.fz-history-row>div>span{color:#999}
+.fz-history-row>div:last-child span{color:#d47a90}
+.fz-footer{border-color:#333;color:#888}
+.fz-footer a:first-child,.fz-footer a:last-child{color:#c77b8d}
+.fz-loading{background:#111}
+.fz-loading-card{background:#1d1d1d;border-color:#383838;color:#ddd}
+.fz-alert-success{background:#1c3024;color:#b9e4c7;border-color:#315a3f}
+.fz-alert-error{background:#351d23;color:#f0bac5;border-color:#663341}
+@media(max-width:760px){
+  .fz-app-header{background:#111;border-color:#333}
+  .fz-nav a,.fz-nav button{background:#202020;border:1px solid #363636}
+  .fz-nav .fz-nav-order{background:#202020}
+  .fz-welcome{padding:23px 19px}
+  .fz-points-card{padding:21px 18px}
+  .fz-member-card{background:#1d1d1d}
+}
